@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "createdAt": "04-01-2022",
+    "name": "untitled-document.md",
+    "content": "# Hopefully an h1\nThis is a quick tester. Maybe a nice list?\n\n- One\n- Two\n  - three"
+  },
+  {
+    "id": 2,
+    "createdAt": "04-01-2022",
+    "name": "books_api_dev.md",
+    "content": "# REST API feat node, express, postgres\n\n## Overview\n- REST API through express.js\n- PostgreSQL schema\n- data populated from Kaggle (probably books but exact tbd)\n- An automatic seeder that transforms CSV into PostgreSQL records\n- Bonus task: add authentication\n\n## Endpoints\n\nShould expose at least 2 endpoints\n- PUT/POST\n- GET\n\n## Areas to research\n\n- REST best practices\n\n- Endpoints\n- getAll, getOne, findOne, findMany, createOne etc.\n- Postgres\n- How to seed the db\n- Which implies converting from x to y format via node?\n- Node pg driver for interfacing with Postgres\n"
+  }
+]

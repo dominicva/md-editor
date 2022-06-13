@@ -21,8 +21,7 @@ import { FiTrash2 } from 'react-icons/fi';
 import { marked } from 'marked';
 
 // project components
-// import Header from './components/Header';
-import SideBar from './components/SiderBar';
+import SideBar from './components/SideBar';
 
 const md = '# Marked in Node.js\n\nRendered by **marked**.';
 
