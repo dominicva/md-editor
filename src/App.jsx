@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/no-danger */
 import { useState } from 'react';
 import { marked } from 'marked';
 import 'reset-css';
