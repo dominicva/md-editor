@@ -27,6 +27,9 @@ const theme = extendTheme({
   },
   styles: {
     global: props => ({
+      '#root': {
+        overflow: 'hidden',
+      },
       'html, body': {
         color: props.colorMode === 'dark' ? 'neutral.400' : 'neutral.700',
         bg: props.colorMode === 'dark' ? 'neutral.1000' : 'neutral.100',

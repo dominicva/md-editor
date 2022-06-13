@@ -1,9 +1,13 @@
-import { HamburgerIcon } from '@chakra-ui/icons';
+/* eslint-disable react/prop-types */
+// chakra-ui
 import { Box, Flex, Icon, IconButton, Image, Text } from '@chakra-ui/react';
+
+// icons
+import { HamburgerIcon } from '@chakra-ui/icons';
 import { AiOutlineFile } from 'react-icons/ai';
 import { FiTrash2 } from 'react-icons/fi';
 
-function Header() {
+function Header({ sidebar, toggleSidebar }) {
   return (
     <Box
       as="header"
@@ -14,8 +18,10 @@ function Header() {
       display="flex"
       alignItems="center"
       position="relative"
+      ml={sidebar ? '250px' : 0}
     >
       <IconButton
+        onClick={() => toggleSidebar(!sidebar)}
         aria-label="Toggle side menu"
         variant="unstyled"
         bg="neutral.700"
@@ -35,7 +41,6 @@ function Header() {
       </Flex>
       <Flex position="absolute" right="8px" alignItems="center">
         <Icon as={FiTrash2} stroke="neutral.500" w="18px" h="20px" />
-
         <Image
           src="/icon-save.svg"
           alt="Save file"
