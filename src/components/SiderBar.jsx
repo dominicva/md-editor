@@ -44,12 +44,13 @@ function SiderBar({ isOpen }) {
         color="neutral.100"
         w="202px"
         mb="24px"
+        _hover={{ bg: 'orangeHover' }}
       >
         New Document
       </Button>
 
-      <Flex alignItems="center" gap="16px">
-        <Icon as={AiOutlineFile} w="15px" h="18px" color="neutral.100" />
+      <Flex alignItems="center" gap="14px" mb="24px">
+        <Icon as={AiOutlineFile} w="16px" h="20px" color="neutral.100" />
         <Box>
           <Text
             fontSize="13px"
@@ -62,6 +63,23 @@ function SiderBar({ isOpen }) {
           </Text>
           <Text fontSize="15px" color="neutral.100" fontFamily="app">
             untitled-document.md
+          </Text>
+        </Box>
+      </Flex>
+      <Flex alignItems="center" gap="14px">
+        <Icon as={AiOutlineFile} w="16px" h="20px" color="neutral.100" />
+        <Box>
+          <Text
+            fontSize="13px"
+            fontWeight="light"
+            color="neutral.500"
+            fontFamily="app"
+            mb="3px"
+          >
+            01 April 2022
+          </Text>
+          <Text fontSize="15px" color="neutral.100" fontFamily="app">
+            welcome.md
           </Text>
         </Box>
       </Flex>

@@ -80,21 +80,24 @@ function App() {
               alt="Save file"
               boxSize="40px"
               padding="12px"
-              bg="orange.normal"
+              bg="orange"
               borderRadius="4px"
               ml="24px"
             />
           </Flex>
         </Box>
         <Flex
-          h={{ base: '38px', md: '42px' }}
+          h={{ base: '42px', md: '42px' }}
+          bg="neutral.200"
           px="16px"
+          mb="16px"
           alignItems="center"
           justifyContent="space-between"
         >
           <Text
             color="neutral.500"
             fontSize={{ base: '14px' }}
+            letterSpacing="2px"
             fontFamily="app"
           >
             MARKDOWN
@@ -106,6 +109,9 @@ function App() {
             minH={{ base: '100vh' }}
             value={text}
             onChange={e => setText(e.target.value)}
+            outline="none"
+            border="none"
+            _focusVisible={{ border: 'none' }}
           />
         </Box>
 

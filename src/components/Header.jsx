@@ -46,7 +46,7 @@ function Header({ sidebar, toggleSidebar }) {
           alt="Save file"
           boxSize="40px"
           padding="12px"
-          bg="orange.normal"
+          color="orange"
           borderRadius="4px"
           ml="24px"
         />
