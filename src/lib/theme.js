@@ -14,10 +14,8 @@ const theme = extendTheme({
       900: '#1D1F22',
       1000: '#151619',
     },
-    orange: {
-      normal: '#E46643',
-      hover: '#F39765',
-    },
+    orange: '#E46643',
+    orangeHover: '#F39765',
   },
   fonts: {
     body: `'Roboto Slab', serif`,

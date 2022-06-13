@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import { Box } from '@chakra-ui/react';
+import { AddIcon } from '@chakra-ui/icons';
+import { AiOutlineFile } from 'react-icons/ai';
+import { Box, Heading, Button, Flex, Icon, Text } from '@chakra-ui/react';
 
 function SiderBar({ isOpen }) {
   return (
@@ -12,8 +14,57 @@ function SiderBar({ isOpen }) {
       left={isOpen ? 0 : '-250px'}
       zIndex={10}
       transition="all 0.5s ease"
+      py="28px"
+      px="24px"
     >
-      <h1>Sidebar</h1>
+      <Heading
+        fontSize="15px"
+        letterSpacing="5px"
+        fontFamily="app"
+        color="neutral.100"
+        mb="28px"
+      >
+        MARKDOWN
+      </Heading>
+      <Heading
+        fontSize="14px"
+        letterSpacing="2px"
+        fontFamily="app"
+        color="neutral.500"
+        mb="28px"
+      >
+        MY DOCUMENTS
+      </Heading>
+      <Button
+        leftIcon={<AddIcon />}
+        variant="solid"
+        fontSize="15px"
+        fontFamily="app"
+        bg="orange"
+        color="neutral.100"
+        w="202px"
+        mb="24px"
+      >
+        New Document
+      </Button>
+
+      <Flex alignItems="center" gap="16px">
+        <Icon as={AiOutlineFile} w="15px" h="18px" color="neutral.100" />
+        <Box>
+          <Text
+            fontSize="13px"
+            fontWeight="light"
+            color="neutral.500"
+            fontFamily="app"
+            mb="3px"
+          >
+            01 April 2022
+          </Text>
+          <Text fontSize="15px" color="neutral.100" fontFamily="app">
+            untitled-document.md
+          </Text>
+        </Box>
+      </Flex>
     </Box>
   );
 }
