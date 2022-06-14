@@ -9,10 +9,11 @@ import {
   Box,
   Text,
   Flex,
-  Textarea,
   Image,
+  Divider,
   Icon,
   IconButton,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import 'reset-css';
 
@@ -22,13 +23,30 @@ import { FiTrash2 } from 'react-icons/fi';
 
 // project components
 import SideBar from './components/SideBar';
+import Editor from './components/Editor';
 
-const md = '# Marked in Node.js\n\nRendered by **marked**.';
+const initial = `# Welcome to Markdown
+
+Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents.
+
+## How to use this?
+
+1. Write markdown in the markdown editor window
+2. See the rendered markdown in the preview window
+
+### Features
+
+- Create headings, paragraphs, links, blockquotes, inline-code, code blocks, and lists
+- Name and save the document to access again later
+- Choose between Light or Dark mode depending on your preference
+
+> This is an example of a blockquote. If you would like to learn more about markdown syntax, you can visit this [markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/).
+`;
 
 function App() {
   const [sidebar, setSidebar] = useState(false);
 
-  const [text, setText] = useState(md);
+  const [text, setText] = useState(initial);
 
   const mdComponent = (
     <ReactMarkdown components={ChakraUIRenderer()} skipHtml>
@@ -91,16 +109,16 @@ function App() {
           </Flex>
         </Box>
         <Flex
-          h={{ base: '42px', md: '42px' }}
-          bg="neutral.200"
+          h={{ base: '44px', md: '48px' }}
+          bg={useColorModeValue('neutral.200', 'neutral.900')}
           px="16px"
-          mb="16px"
           alignItems="center"
           justifyContent="space-between"
         >
           <Text
-            color="neutral.500"
+            color={useColorModeValue('neutral.500', 'neutral.400')}
             fontSize={{ base: '14px' }}
+            marginTop="2px"
             letterSpacing="2px"
             fontFamily="app"
           >
@@ -108,18 +126,19 @@ function App() {
           </Text>
           <Image src="/icon-show-preview.svg" alt="Show preview" />
         </Flex>
-        <Box>
-          <Textarea
-            minH={{ base: '100vh' }}
-            value={text}
-            onChange={e => setText(e.target.value)}
-            outline="none"
-            border="none"
-            _focusVisible={{ border: 'none' }}
-          />
-        </Box>
 
-        <Box minH={{ base: '100vh' }}>{mdComponent}</Box>
+        <Box
+          display={{ md: 'grid' }}
+          gridTemplateColumns="1fr 1px 1fr"
+          gap="16px"
+          mt="16px"
+        >
+          <Editor text={text} onTextChange={setText} />
+          <Divider orientation="vertical" minHeight="100vh" />
+          <Box paddingX="16px" minH={{ base: '100vh' }} gridColumnStart="3">
+            {mdComponent}
+          </Box>
+        </Box>
       </Box>
     </div>
   );

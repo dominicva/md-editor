@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Box, Flex, Icon, Text } from '@chakra-ui/react';
 import { AiOutlineFile } from 'react-icons/ai';
 

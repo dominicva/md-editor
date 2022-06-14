@@ -1,5 +1,12 @@
-/* eslint-disable react/prop-types */
-import { Box, Heading, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Flex,
+  Button,
+  Circle,
+  Image,
+  useColorMode,
+} from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 
 import Document from './Document';
@@ -7,6 +14,9 @@ import Document from './Document';
 import documents from '../data.json';
 
 function SideBar({ isOpen }) {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const isLightMode = colorMode === 'light';
+
   return (
     <Box
       w="250px"
@@ -55,6 +65,39 @@ function SideBar({ isOpen }) {
       {documents.map(d => (
         <Document key={d.id} createdAt={d.createdAt} fileName={d.name} />
       ))}
+
+      <Flex alignItems="center" gap="10px">
+        <Image
+          src={`/icon-dark-mode${isLightMode ? '' : '-active'}.svg`}
+          alt="Dark mode icon"
+          w="16px"
+          h="16px"
+        />
+        <Box
+          as="button"
+          onClick={() => toggleColorMode()}
+          w="48px"
+          h="24px"
+          bgColor="neutral.600"
+          borderRadius="16px"
+          display="flex"
+          alignItems="center"
+          px="6px"
+          cursor="pointer"
+        >
+          <Circle
+            size="12px"
+            bgColor="neutral.100"
+            transform={`translateX(${isLightMode ? '24' : '0'}px)`}
+          />
+        </Box>
+        <Image
+          src={`/icon-light-mode${isLightMode ? '-active' : ''}.svg`}
+          alt="Light mode icon"
+          w="18px"
+          h="18px"
+        />
+      </Flex>
     </Box>
   );
 }
