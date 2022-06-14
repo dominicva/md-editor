@@ -10,7 +10,7 @@ function ViewHeader({ view, scroll }) {
   const iconVariant = view === 'markdown' ? 'show' : 'hide';
   const image = (
     <Image
-      src={`/icon-${iconVariant}-preview.svg`}
+      src={`/icon-${iconVariant}-preview-hover.svg`}
       alt={`${iconVariant} preview`}
     />
   );
@@ -19,7 +19,6 @@ function ViewHeader({ view, scroll }) {
     <Flex
       h={{ base: '44px', md: '48px' }}
       bg={useColorModeValue('neutral.200', 'neutral.900')}
-      px="16px"
       alignItems="center"
       justifyContent="space-between"
     >
@@ -33,9 +32,27 @@ function ViewHeader({ view, scroll }) {
         {view.toUpperCase()}
       </Text>
 
-      <IconButton onClick={() => scroll(view === 'markdown' ? 1 : 0)}>
-        {image}
-      </IconButton>
+      <Flex
+        alignItems="center"
+        justifyContent="space-between"
+        width={{ md: '48%' }}
+        paddingRight="8px"
+      >
+        <Text
+          color={useColorModeValue('neutral.500', 'neutral.400')}
+          fontSize={{ base: '14px' }}
+          marginTop="2px"
+          letterSpacing="2px"
+          fontFamily="app"
+          display={{ base: 'none', md: 'block' }}
+        >
+          PREVIEW
+        </Text>
+
+        <IconButton onClick={() => scroll(view === 'markdown' ? 1 : 0)}>
+          {image}
+        </IconButton>
+      </Flex>
     </Flex>
   );
 }

@@ -6,25 +6,14 @@ import ReactMarkdown from 'react-markdown';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 
 // chakra-ui
-import {
-  Box,
-  Text,
-  Flex,
-  Image,
-  Divider,
-  Icon,
-  IconButton,
-} from '@chakra-ui/react';
+import { Box, Divider } from '@chakra-ui/react';
 import 'reset-css';
-
-import { HamburgerIcon } from '@chakra-ui/icons';
-import { AiOutlineFile } from 'react-icons/ai';
-import { FiTrash2 } from 'react-icons/fi';
 
 // project components
 import SideBar from './components/SideBar';
 import Editor from './components/Editor';
 import Preview from './components/Preview';
+import MainHeader from './components/MainHeader';
 import ViewHeader from './components/ViewHeader';
 
 const initial = `# Welcome to Markdown
@@ -81,51 +70,10 @@ function App() {
         ml={sidebar ? '250px' : 0}
         transition="all 0.5s ease"
       >
-        <Box
-          as="header"
-          h={{ base: '56px', md: '72px' }}
-          bg="neutral.800"
-          color="neutral.100"
-          fontFamily="app"
-          display="flex"
-          alignItems="center"
-          position="relative"
-        >
-          <IconButton
-            onClick={() => setSidebar(!sidebar)}
-            aria-label="Toggle sidebar"
-            variant="unstyled"
-            bg="neutral.700"
-            icon={
-              <HamburgerIcon
-                w={{ base: '30px', md: '40px' }}
-                h={{ base: '20px', md: '24px' }}
-              />
-            }
-            w={{ base: '56px', md: '72px' }}
-            h={{ base: '56px', md: '72px' }}
-            mr="24px"
-            _hover={{ bg: 'orange' }}
-          />
-          <Flex alignItems="center" gap="12px">
-            <Icon as={AiOutlineFile} />
-            <Text>welcome.md</Text>
-          </Flex>
-          <Flex position="absolute" right="8px" alignItems="center">
-            <Icon as={FiTrash2} stroke="neutral.500" w="18px" h="20px" />
-            <Image
-              src="/icon-save.svg"
-              alt="Save file"
-              boxSize="40px"
-              padding="12px"
-              bg="orange"
-              borderRadius="4px"
-              ml="24px"
-            />
-          </Flex>
-        </Box>
+        <MainHeader sidebar={sidebar} handleSidebar={setSidebar} />
+
         <ViewHeader
-          view={viewIndex === 0 ? 'markdown' : 'preview'}
+          view={viewIndex === 0 ? 'preview' : 'markdown'}
           scroll={scrollToView}
         />
 
