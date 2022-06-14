@@ -24,6 +24,7 @@ import { FiTrash2 } from 'react-icons/fi';
 // project components
 import SideBar from './components/SideBar';
 import Editor from './components/Editor';
+import Preview from './components/Preview';
 
 const initial = `# Welcome to Markdown
 
@@ -130,14 +131,11 @@ function App() {
         <Box
           display={{ md: 'grid' }}
           gridTemplateColumns="1fr 1px 1fr"
-          gap="16px"
           mt="16px"
         >
           <Editor text={text} onTextChange={setText} />
           <Divider orientation="vertical" minHeight="100vh" />
-          <Box paddingX="16px" minH={{ base: '100vh' }} gridColumnStart="3">
-            {mdComponent}
-          </Box>
+          <Preview md={mdComponent} />
         </Box>
       </Box>
     </div>
