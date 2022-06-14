@@ -5,7 +5,8 @@ function Editor({ text, onTextChange }) {
     <Box>
       <Textarea
         fontFamily="mono"
-        minH={{ base: '100vh' }}
+        h={{ base: 'calc(100vh - 120px)' }}
+        width={{ base: '100vw' }}
         paddingX="16px"
         value={text}
         onChange={e => onTextChange(e.target.value)}

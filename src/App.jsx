@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 // md parsing pkgs
 import ReactMarkdown from 'react-markdown';
@@ -45,8 +45,9 @@ Markdown is a lightweight markup language that you can use to add formatting ele
 `;
 
 function App() {
+  const viewRef = useRef(null);
+  const [viewIndex, setViewIndex] = useState(1);
   const [sidebar, setSidebar] = useState(false);
-
   const [text, setText] = useState(initial);
 
   const mdComponent = (
@@ -54,6 +55,18 @@ function App() {
       {text}
     </ReactMarkdown>
   );
+
+  function scrollToView(index) {
+    const viewsNode = viewRef.current;
+    const viewNode = viewsNode.querySelectorAll('div')[index];
+
+    viewNode.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+
+    setViewIndex(viewIndex === 0 ? 1 : 0);
+  }
 
   return (
     <div>
@@ -125,16 +138,20 @@ function App() {
           >
             MARKDOWN
           </Text>
-          <Image src="/icon-show-preview.svg" alt="Show preview" />
+          <IconButton onClick={() => scrollToView(viewIndex)}>
+            <Image src="/icon-show-preview.svg" alt="Show preview" />
+          </IconButton>
         </Flex>
 
         <Box
-          display={{ md: 'grid' }}
+          ref={viewRef}
+          display="grid"
           gridTemplateColumns="1fr 1px 1fr"
           mt="16px"
+          overflowX="hidden"
         >
           <Editor text={text} onTextChange={setText} />
-          <Divider orientation="vertical" minHeight="100vh" />
+          <Divider orientation="vertical" height="calc(100vh - 120px)" />
           <Preview md={mdComponent} />
         </Box>
       </Box>
