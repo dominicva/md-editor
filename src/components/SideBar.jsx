@@ -66,7 +66,13 @@ function SideBar({ isOpen }) {
         <Document key={d.id} createdAt={d.createdAt} fileName={d.name} />
       ))}
 
-      <Flex alignItems="center" gap="10px">
+      <Flex
+        alignItems="center"
+        gap="10px"
+        position="absolute"
+        bottom="24px"
+        left="24px"
+      >
         <Image
           src={`/icon-dark-mode${isLightMode ? '' : '-active'}.svg`}
           alt="Dark mode icon"

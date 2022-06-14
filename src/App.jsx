@@ -69,7 +69,7 @@ function App() {
   }
 
   return (
-    <div>
+    <Box>
       <SideBar isOpen={sidebar} />
 
       <Box
@@ -92,18 +92,19 @@ function App() {
         >
           <IconButton
             onClick={() => setSidebar(!sidebar)}
-            aria-label="Toggle side menu"
+            aria-label="Toggle sidebar"
             variant="unstyled"
             bg="neutral.700"
             icon={
               <HamburgerIcon
-                w={{ base: '30px', md: '30px' }}
-                h={{ base: '20px', md: '18px' }}
+                w={{ base: '30px', md: '40px' }}
+                h={{ base: '20px', md: '24px' }}
               />
             }
             w={{ base: '56px', md: '72px' }}
             h={{ base: '56px', md: '72px' }}
             mr="24px"
+            _hover={{ bg: 'orange' }}
           />
           <Flex alignItems="center" gap="12px">
             <Icon as={AiOutlineFile} />
@@ -155,7 +156,7 @@ function App() {
           <Preview md={mdComponent} />
         </Box>
       </Box>
-    </div>
+    </Box>
   );
 }
 
