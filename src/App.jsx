@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import { useState, useRef } from 'react';
 
 // md parsing pkgs
@@ -13,7 +14,6 @@ import {
   Divider,
   Icon,
   IconButton,
-  useColorModeValue,
 } from '@chakra-ui/react';
 import 'reset-css';
 
@@ -25,6 +25,7 @@ import { FiTrash2 } from 'react-icons/fi';
 import SideBar from './components/SideBar';
 import Editor from './components/Editor';
 import Preview from './components/Preview';
+import ViewHeader from './components/ViewHeader';
 
 const initial = `# Welcome to Markdown
 
@@ -123,40 +124,23 @@ function App() {
             />
           </Flex>
         </Box>
-        <Flex
-          h={{ base: '44px', md: '48px' }}
-          bg={useColorModeValue('neutral.200', 'neutral.900')}
-          px="16px"
-          alignItems="center"
-          justifyContent="space-between"
-        >
-          <Text
-            color={useColorModeValue('neutral.500', 'neutral.400')}
-            fontSize={{ base: '14px' }}
-            marginTop="2px"
-            letterSpacing="2px"
-            fontFamily="app"
-          >
-            {viewIndex === 0 ? 'PREVIEW' : 'MARKDOWN'}
-          </Text>
-          <IconButton onClick={() => scrollToView(viewIndex)}>
-            <Image src="/icon-show-preview.svg" alt="Show preview" />
-          </IconButton>
-        </Flex>
+        <ViewHeader
+          view={viewIndex === 0 ? 'markdown' : 'preview'}
+          scroll={scrollToView}
+        />
 
         <Box
           ref={viewRef}
           display="grid"
           gridTemplateColumns="1fr 1px 1fr"
-          mt="16px"
           overflowX="hidden"
         >
           <Editor text={text} onTextChange={setText} />
           <Divider
             orientation="vertical"
-            height="100vh"
-            position="fixed"
-            top="120.5px"
+            height="calc(100vh - 88px)"
+            position="relative"
+            top="0px"
             left="50%"
             display={{ base: 'none', md: 'block' }}
           />

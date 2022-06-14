@@ -2,7 +2,7 @@ import { Box, Textarea, useColorModeValue } from '@chakra-ui/react';
 
 function Editor({ text, onTextChange }) {
   return (
-    <Box px="16px" width={{ base: '100vw', md: '100%' }} gridColumn="span 1">
+    <Box p="16px" width={{ base: '100vw', md: '100%' }} gridColumn="span 1">
       <Textarea
         fontFamily="mono"
         px="0"
