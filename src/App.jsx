@@ -152,7 +152,14 @@ function App() {
           overflowX="hidden"
         >
           <Editor text={text} onTextChange={setText} />
-          <Divider orientation="vertical" height="calc(100vh - 120px)" />
+          <Divider
+            orientation="vertical"
+            height="100vh"
+            position="fixed"
+            top="120.5px"
+            left="50%"
+            display={{ base: 'none', md: 'block' }}
+          />
           <Preview md={mdComponent} />
         </Box>
       </Box>
