@@ -6,7 +6,7 @@ import Document from './Document';
 
 import documents from '../data.json';
 
-function SiderBar({ isOpen }) {
+function SideBar({ isOpen }) {
   return (
     <Box
       w="250px"
@@ -59,4 +59,4 @@ function SiderBar({ isOpen }) {
   );
 }
 
-export default SiderBar;
+export default SideBar;
