@@ -136,7 +136,7 @@ function App() {
             letterSpacing="2px"
             fontFamily="app"
           >
-            MARKDOWN
+            {viewIndex === 0 ? 'PREVIEW' : 'MARKDOWN'}
           </Text>
           <IconButton onClick={() => scrollToView(viewIndex)}>
             <Image src="/icon-show-preview.svg" alt="Show preview" />
