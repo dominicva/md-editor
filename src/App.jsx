@@ -1,6 +1,8 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable react/no-danger */
 import { useState } from 'react';
+
+// md parsing pkgs
+import ReactMarkdown from 'react-markdown';
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 
 // chakra-ui
 import {
@@ -13,12 +15,10 @@ import {
   IconButton,
 } from '@chakra-ui/react';
 import 'reset-css';
+
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { AiOutlineFile } from 'react-icons/ai';
 import { FiTrash2 } from 'react-icons/fi';
-
-// md parser pkg
-import { marked } from 'marked';
 
 // project components
 import SideBar from './components/SideBar';
@@ -29,7 +29,12 @@ function App() {
   const [sidebar, setSidebar] = useState(false);
 
   const [text, setText] = useState(md);
-  const __html = marked.parse(text);
+
+  const mdComponent = (
+    <ReactMarkdown components={ChakraUIRenderer()} skipHtml>
+      {text}
+    </ReactMarkdown>
+  );
 
   return (
     <div>
@@ -114,7 +119,7 @@ function App() {
           />
         </Box>
 
-        <Box minH={{ base: '100vh' }} dangerouslySetInnerHTML={{ __html }} />
+        <Box minH={{ base: '100vh' }}>{mdComponent}</Box>
       </Box>
     </div>
   );
