@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/react';
 function Preview({ md }) {
   return (
     <Box
+      className="view"
       p="16px"
       h={{ base: 'calc(100vh - 120px)' }}
       gridColumn="span 1"

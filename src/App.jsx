@@ -10,11 +10,9 @@ import { Box, Divider } from '@chakra-ui/react';
 import 'reset-css';
 
 // project components
-import SideBar from './components/SideBar';
 import Editor from './components/Editor';
 import Preview from './components/Preview';
-import MainHeader from './components/MainHeader';
-import ViewHeader from './components/ViewHeader';
+import Header from './components/Header';
 
 const initial = `# Welcome to Markdown
 
@@ -37,7 +35,6 @@ Markdown is a lightweight markup language that you can use to add formatting ele
 function App() {
   const viewRef = useRef(null);
   const [viewIndex, setViewIndex] = useState(1);
-  const [sidebar, setSidebar] = useState(false);
   const [text, setText] = useState(initial);
 
   const mdComponent = (
@@ -48,7 +45,7 @@ function App() {
 
   function scrollToView(index) {
     const viewsNode = viewRef.current;
-    const viewNode = viewsNode.querySelectorAll('div')[index];
+    const viewNode = viewsNode.querySelectorAll('.view')[index];
 
     viewNode.scrollIntoView({
       behavior: 'smooth',
@@ -60,22 +57,14 @@ function App() {
 
   return (
     <Box>
-      <SideBar isOpen={sidebar} />
-
       <Box
         as="main"
         height="100vh"
         width="100vw"
         overflowY="scroll"
-        ml={sidebar ? '250px' : 0}
         transition="all 0.5s ease"
       >
-        <MainHeader sidebar={sidebar} handleSidebar={setSidebar} />
-
-        <ViewHeader
-          view={viewIndex === 0 ? 'preview' : 'markdown'}
-          scroll={scrollToView}
-        />
+        <Header viewIndex={viewIndex} onViewChange={scrollToView} />
 
         <Box
           ref={viewRef}
@@ -83,7 +72,11 @@ function App() {
           gridTemplateColumns="1fr 1px 1fr"
           overflowX="hidden"
         >
-          <Editor text={text} onTextChange={setText} />
+          <Editor
+            text={text}
+            onTextChange={setText}
+            onViewChange={scrollToView}
+          />
           <Divider
             orientation="vertical"
             height="calc(100vh - 88px)"
