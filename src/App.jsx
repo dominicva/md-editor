@@ -73,6 +73,7 @@ function App() {
           gap="32px"
           marginTop={{ base: '84px', xl: '114px' }}
           paddingX={{ base: '16px', md: '32px', xl: '8px' }}
+          overflowX="hidden"
         >
           <Editor
             text={text}

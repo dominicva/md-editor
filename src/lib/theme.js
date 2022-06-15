@@ -2,10 +2,14 @@ import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
   colors: {
-    primary: '#020203',
+    // primary: '#020203',
+    primary: '#0d1117',
     secondary: '#19252e',
-    accent: '#FA3737',
-    accentHover: '#FB6060',
+    // accent: '#FA3737',
+    accent: '#f9826c',
+    // accentHover: '#FB6060',
+    accentHover: '#f9826c',
+    javascript: '#ffa657',
 
     neutral: {
       100: '#ffffff',
@@ -23,8 +27,8 @@ const theme = extendTheme({
     orangeHover: '#F39765',
   },
   fonts: {
-    body: `'Roboto Slab', serif`,
-    heading: `'Roboto Slab', serif`,
+    body: `'Nunito', sans-serif`,
+    heading: `'Nunito Sans', monospace`,
     mono: `'Roboto Mono', monospace`,
     app: `'Roboto', sans-serif`,
   },
@@ -34,8 +38,26 @@ const theme = extendTheme({
         overflow: 'hidden',
       },
       'html, body': {
-        color: props.colorMode === 'dark' ? 'neutral.400' : 'neutral.700',
+        color: props.colorMode === 'dark' ? 'neutral.300' : 'neutral.700',
         bg: props.colorMode === 'dark' ? 'primary' : 'neutral.100',
+        fontSize: '18px',
+      },
+      h1: {
+        letterSpacing: '2px',
+        fontSize: '40px !important',
+      },
+      h2: {
+        letterSpacing: '1px',
+        fontSize: '32px !important',
+      },
+      h3: {
+        fontSize: '26px !important',
+      },
+      h4: {
+        fontSize: '22px !important',
+      },
+      h5: {
+        fontSize: '20px !important',
       },
     }),
   },
