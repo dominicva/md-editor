@@ -2,6 +2,11 @@ import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
   colors: {
+    primary: '#020203',
+    secondary: '#020203',
+    accent: '#FA3737',
+    accentHover: '#FB6060',
+
     neutral: {
       100: '#ffffff',
       200: '#f5f5f5',
@@ -30,7 +35,7 @@ const theme = extendTheme({
       },
       'html, body': {
         color: props.colorMode === 'dark' ? 'neutral.400' : 'neutral.700',
-        bg: props.colorMode === 'dark' ? 'neutral.1000' : 'neutral.100',
+        bg: props.colorMode === 'dark' ? 'primary' : 'neutral.100',
       },
     }),
   },

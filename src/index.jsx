@@ -10,6 +10,8 @@ import '@fontsource/roboto-slab';
 
 import App from './App';
 
+console.log('theme:', theme);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

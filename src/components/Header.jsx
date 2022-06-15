@@ -7,23 +7,24 @@ function Header({ viewIndex, onViewChange }) {
 
   return (
     <Flex
-      as="header"
       h="60px"
-      bg="neutral.1000"
-      color="neutral.100"
-      fontFamily="app"
-      display="flex"
+      bg="primary"
       alignItems="center"
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
-      paddingX="24px"
+      p="24px"
     >
       <Button
         onClick={() => onViewChange(nextViewIndex)}
         display={{ md: 'none' }}
+        bg="transparent"
+        opacity="0.8"
+        _hover={{ transform: 'scale(1.2)', opacity: 1 }}
       >
         <Image
           src={`/icon-${iconSpecifier}-preview-hover.svg`}
           alt={`${iconSpecifier} preview"`}
+          w="20px"
+          wh="20px"
         />
       </Button>
       <ColorModeToggle />
