@@ -59,6 +59,10 @@ const theme = extendTheme({
       h5: {
         fontSize: '20px !important',
       },
+      blockquote: {
+        margin: '24px auto',
+        padding: '12px !important',
+      },
     }),
   },
 });
