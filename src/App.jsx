@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 
 // chakra-ui
-import { Box, Divider } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import 'reset-css';
 
 // project components
@@ -56,11 +56,11 @@ function App() {
   }
 
   return (
-    <Box>
+    <Box width="100vw" maxW="1440px" margin="auto">
       <Box
         as="main"
+        width="100%"
         height="100vh"
-        width="100vw"
         overflowY="scroll"
         transition="all 0.5s ease"
       >
@@ -69,22 +69,17 @@ function App() {
         <Box
           ref={viewRef}
           display="grid"
-          gridTemplateColumns="1fr 1px 1fr"
-          overflowX="hidden"
+          gridTemplateColumns="1fr 1fr"
+          gap="32px"
+          marginTop={{ base: '84px', xl: '114px' }}
+          paddingX={{ base: '16px', md: '32px', xl: '8px' }}
         >
           <Editor
             text={text}
             onTextChange={setText}
             onViewChange={scrollToView}
           />
-          <Divider
-            orientation="vertical"
-            height="calc(100vh - 88px)"
-            position="relative"
-            top="0px"
-            left="50%"
-            display={{ base: 'none', md: 'block' }}
-          />
+
           <Preview md={mdComponent} />
         </Box>
       </Box>

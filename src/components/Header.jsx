@@ -1,4 +1,4 @@
-import { Flex, Button, Image } from '@chakra-ui/react';
+import { Flex, Button, Image, useColorModeValue } from '@chakra-ui/react';
 import ColorModeToggle from './ColorModeToggle';
 
 function Header({ viewIndex, onViewChange }) {
@@ -8,7 +8,12 @@ function Header({ viewIndex, onViewChange }) {
   return (
     <Flex
       h="60px"
-      bg="primary"
+      w="100vw"
+      position="absolute"
+      top="0"
+      left="0"
+      zIndex={10}
+      bg={useColorModeValue('secondary', 'primary')}
       alignItems="center"
       justifyContent={{ base: 'space-between', md: 'flex-end' }}
       p="24px"
